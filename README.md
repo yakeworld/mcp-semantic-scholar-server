@@ -1,3 +1,9 @@
+---
+noteId: "96e17bb0cad111ef947d13551760d7dd"
+tags: []
+
+---
+
 # Semantic Scholar API MCP server
 
 Made with [FastMCP](https://github.com/jlowin/fastmcp)
