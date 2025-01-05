@@ -1,20 +1,12 @@
 from fastmcp import FastMCP
 import httpx
 from typing import Optional
-from pydantic import BaseModel, Field
-
-# Configuration model
-class Config(BaseModel):
-    api_key: Optional[str] = Field(
-        None,
-        description="Optional: Semantic Scholar API Key to increase rate limits from 100 to 5000 requests per 5 minutes"
-    )
+from pydantic import Field
 
 # Create the MCP server with configuration
 mcp = FastMCP(
     "Semantic Scholar Search 📚",
-    dependencies=["httpx", "pydantic"],
-    config=Config
+    dependencies=["httpx", "pydantic"]
 )
 
 # Constants
@@ -22,7 +14,7 @@ FIELDS = ','.join(['title', 'year', 'authors', 'venue', 'citationCount', 'extern
 BASE_URL = 'https://api.semanticscholar.org/graph/v1/paper/search'
 
 @mcp.tool()
-async def search_papers(
+async def search_papers_via_semanticscholar(
     keyword: str = Field(..., description="Search query for academic papers (e.g., 'quantum computing')"),
     limit: int = Field(10, description="Maximum number of results to return", ge=1, le=25),
     year_from: Optional[int] = Field(None, description="Filter papers from this year onwards"),
