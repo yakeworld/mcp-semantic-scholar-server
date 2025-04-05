@@ -62,6 +62,10 @@ or set by adding an `env` key in mcp settings by:
 
 You can get an API key by filling out the form at: https://www.semanticscholar.org/product/api
 
+## Suggested Agent System prompt
+
+See: [benhaotang/my_agent_system_prompt](https://github.com/benhaotang/my_agent_system_prompt/blob/main/msty_ai_preresearch.md), the AI pre-research agent that can make full use of this mcp server.
+
 ## Known issues
 
 - If you see things like `INFO Processing request of type __init__.py:431 ListToolsRequest` in cline, you can ignore them as this will not affect it from working, this is because cline parse tool list together with console debug infos, and current python-sdk cannot disable console messages. This will not affect any function calling part other than seeing this warning.
